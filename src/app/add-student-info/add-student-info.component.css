@@ -1,0 +1,36 @@
+
+h5{
+    text-align: center;
+    color:red;
+    margin-top: 20px;
+    text-decoration-line: underline;
+}
+.color{
+    margin-top: 35px;
+    width:35%
+    margin-left=40%
+}
+button{
+    margin-top: 4%;
+}
+.container{
+    background-color:rgba(13, 13, 13, 0.898);
+    width:30%
+    
+}
+label{
+    color: rgba(232, 226, 226, 0.737);
+}
+.image{
+    background-image: url("https://www.cpacanada.ca/-/media/site/legacy/round-1/images/21024.jpg");
+
+    height:40em; 
+    background-size:cover;
+     width:100%;
+   
+     background-position:50% 50%;
+    position: fixed;
+}
+.myValidation div{
+    color: red;
+}

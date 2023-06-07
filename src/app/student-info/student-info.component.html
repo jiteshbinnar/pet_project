@@ -1,0 +1,152 @@
+
+  <div *ngIf="student.length===0; else elseBlock">
+    <br>
+     <h4>Sorry....! List is empty</h4>
+   
+  </div>
+    <ng-template #elseBlock>
+      <p>Note: Click on id to see student status</p>
+    <table class="table table-striped table-dark">
+     <thead>
+       <tr>
+         <th scope="col">Id</th>
+         <th scope="col">Student name</th>
+         <th scope="col">Phone Number</th>
+         <th scope="col">Email Id</th>
+         <th scope="col">12th/Diploma Marks</th>
+         <th scope="col">Resume</th>
+         <th scope="col">Stream</th>
+         <th scope="col">Action</th>
+       </tr>
+     </thead>
+     <tbody>
+      <ng-container  *ngFor="let data of student | filter:searchStudentData:'name'">
+       <tr>
+    
+         <td><a [routerLink]="['/getStudentInfo',data.id]">{{data.id}}</a></td>
+         <td>{{data.name}}</td>
+         <td>{{data.phoneNumber}}
+          <td>{{data.email}}
+          <td>{{data.Marks}}
+          <td>{{data.resume}}
+          <td>{{data.stream}}
+         </td>
+        
+        <td>
+          <button type="button" (click)="editStudent(data)" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Edit</button>
+          <button type="button" (click)="deleteStudent(data)" class="btn btn-danger btn-sm mx-3" >Delete</button>
+          
+        </td>
+    
+       </tr>
+      </ng-container>
+     </tbody>
+    
+    </table>
+  
+
+<!-- Modal -->
+
+    </ng-template>
+
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Update student information</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form [formGroup]="updateStudent" (onSubmit)="updatingStudent()">
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Student name</label>
+                <input type="text" class="form-control" formControlName="name">
+                <div class="myValidation"
+                *ngIf="!name?.valid && (name?.dirty ||name?.touched)">
+                <div [hidden]="!name?.errors?.['required']">
+                   Name is required
+                </div>
+                <div [hidden]="!name?.errors?.['minlength']">
+                  Name length should be 10
+                </div>
+                <div [hidden]="!name?.errors?.['pattern']">
+                  Enter full Name<br>
+                  First letter must be capital
+                </div>
+              </div>
+             </div>
+
+              <div class="mb-3">
+                <label class="form-label">Phone Number</label>
+                <input type="text" formControlName="phoneNumber" class="form-control">
+                <div class="myValidation"
+                *ngIf="!phoneNumber?.valid && (phoneNumber?.dirty || phoneNumber?.touched)">
+                <div [hidden]="!phoneNumber?.errors?.['required']">
+                  Phone number is required
+                </div>
+                <div [hidden]="!phoneNumber?.errors?.['pattern']">
+               Invalid phone number
+                </div>
+                </div>
+                </div>
+
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email Id</label>
+                <input type="text" class="form-control" formControlName="email">
+                <div *ngIf="!email?.valid && (email?.dirty ||email?.touched)" class="myValidation">
+                  <div [hidden]="!email?.errors?.['required']">
+                    email is required
+                  </div>
+                  <div [hidden]="!email?.errors?.['pattern']">
+                    invalid email id
+                  </div>
+                </div>
+              </div>
+            
+
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Student Marks</label>
+                <input type="text" class="form-control" formControlName="Marks">
+                <div class="myValidation"
+      *ngIf="!Marks?.valid && (Marks?.dirty || Marks?.touched)">
+      <div [hidden]="!Marks?.errors?.['required']">
+        Marks is required
+      </div>
+      <div [hidden]="!Marks?.errors?.['pattern']">
+        Enter Correct marks<br>
+        Format: 00.00
+      </div>
+      </div>
+
+             </div>
+             
+             <div class="mb-3">
+              <label class="form-label" for="customFile">Upload your Resume</label>
+              <input type="file" class="form-control" formControlName="resume"  id="customFile" />
+      </div>
+           
+           <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Stream</label>
+            <select class="form-select" formControlName="stream" aria-label="Default select example" aria-placeholder="Select your Stream">
+              <option value="Engineering">Engineering</option>
+              <option value="Architecture">Architecture</option>
+              <option value="Economics">Economics</option>
+              <option value="Business Studies">Business Studies</option>
+              <option value="Hospitality">Hospitality</option>
+              <option value="Pharmacy">Pharmacy</option>
+              <option value="Others">Others</option>
+            </select>
+         </div>
+         </form>
+         
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" [disabled]="updateStudent.invalid" (click)="updatingStudent()" class="btn btn-primary">save Changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+

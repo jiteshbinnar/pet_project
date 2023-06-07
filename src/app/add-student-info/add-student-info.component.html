@@ -1,0 +1,101 @@
+<div class="image">
+<div class="container">
+<h5>Add student information here..</h5>
+<div class="color">
+<form [formGroup]="addStudent" (onSubmit)="saveStudent()">
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" class="form-control" formControlName="name" placeholder="Student name" required>
+    <div class="myValidation"
+    *ngIf="!name?.valid && (name?.dirty ||name?.touched)">
+    <div [hidden]="!name?.errors?.['required']">
+       Name is required
+    </div>
+    <div [hidden]="!name?.errors?.['minlength']">
+      Name length should be 10
+    </div>
+    <div [hidden]="!name?.errors?.['pattern']">
+      Enter full Name<br>
+      First letter must be capital
+    </div>
+  </div>
+  </div>
+
+    <div class="form-group">
+      <label>Email address</label>
+      <input type="email" class="form-control" formControlName="email"  placeholder="Enter email">
+     </div>
+     <div *ngIf="!email?.valid && (email?.dirty ||email?.touched)" class="myValidation">
+      <div [hidden]="!email?.errors?.['required']">
+        email is required
+      </div>
+      <div [hidden]="!email?.errors?.['pattern']">
+        invalid email id
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Phone Number</label>
+      <input type="text" class="form-control" formControlName="phoneNumber" placeholder="phone Number">
+      <div class="myValidation"
+      *ngIf="!phoneNumber?.valid && (phoneNumber?.dirty || phoneNumber?.touched)">
+      <div [hidden]="!phoneNumber?.errors?.['required']">
+        Phone number is required
+      </div>
+      <div [hidden]="!phoneNumber?.errors?.['pattern']">
+     Invalid phone number
+      </div>
+      </div>
+    </div>
+   
+    <div class="form-group">
+      <label> 12th/Diploma Marks</label>
+      <input type="text" class="form-control" formControlName="Marks" placeholder="Student marks">
+      <div class="myValidation"
+      *ngIf="!Marks?.valid && (Marks?.dirty || Marks?.touched)">
+      <div [hidden]="!Marks?.errors?.['required']">
+        Marks is required
+      </div>
+      <div [hidden]="!Marks?.errors?.['pattern']">
+        Enter Correct marks<br>
+        Format: 00.00
+      </div>
+      </div>
+    </div>
+
+<div class="form-group">
+  <label> Select Stream</label>
+    <select class="form-select" formControlName="stream" aria-label="Default select example" aria-placeholder="Select your Stream required">
+      <option value="Engineering">Engineering</option>
+      <option value="Architecture">Architecture</option>
+      <option value="Economics">Economics</option>
+      <option value="Business Studies">Business Studies</option>
+      <option value="Hospitality">Hospitality</option>
+      <option value="Pharmacy">Pharmacy</option>
+      <option value="Others">Others</option>
+    </select>
+    <div class="myValidation"
+    *ngIf="!stream?.valid && (stream?.dirty || stream?.touched)">
+    <div [hidden]="!stream?.errors?.['required']">
+      Stream is required</div>
+    </div>
+  </div>
+
+    <div class="form-group">
+     <label class="form-label" for="customFile">Upload your Resume</label>
+     <input type="file" class="form-control" formControlName="resume"  id="customFile" required/>
+     <div class="myValidation"
+     *ngIf="!resume?.valid && (resume?.dirty || resume?.touched)">
+     <div [hidden]="!resume?.errors?.['required']">
+       Resume is required</div>
+     </div>
+     </div>
+
+    <button type="submit" [disabled]="addStudent.invalid" (click)="saveStudent()" class="btn btn-secondary">Submit</button>
+  </form>
+  <br>
+
+</div>
+
+
+</div>
+</div>

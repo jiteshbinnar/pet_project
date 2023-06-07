@@ -1,0 +1,36 @@
+h4{
+    color: red;
+    text-align: center;
+    text-decoration: underline;
+    margin-top: 20px;
+}
+.table{
+    width: 50%;
+    margin-left: 25%;
+}
+button{
+    margin-left: 43%;
+}
+.status{
+    text-align: center;
+    text-decoration: solid;
+    font-size: large;
+    font-weight: bold;
+    font-style: italic;
+}
+p{
+    font-style: italic;
+    text-align: center;
+}
+.image{
+    
+        background-image: url("https://i.pinimg.com/originals/b8/3c/13/b83c136118cfaebe3cf3ea8989d6f906.png");
+    
+        height:40em; 
+        background-size:cover;
+         width:100%;
+       
+         background-position:50% 50%;
+        position: fixed;
+    
+}

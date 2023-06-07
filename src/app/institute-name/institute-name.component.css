@@ -1,0 +1,27 @@
+table{
+    width:50%;
+
+    margin-left: 25%;
+   margin-top: 4%;
+}
+h4{
+    color: red;
+    text-align: center;
+    text-decoration: underline;
+    margin-top: 3%;
+}
+.image{
+    background-image: url("https://i.pinimg.com/originals/b8/3c/13/b83c136118cfaebe3cf3ea8989d6f906.png");
+
+    height:40em; 
+    background-size:cover;
+     width:100%;
+   
+     background-position:50% 50%;
+    position: fixed;
+}
+p{
+    color: red;
+    text-align: center;
+    font-style: italic;
+}

@@ -1,0 +1,27 @@
+h5{
+    color: red;
+    text-decoration: underline;
+}
+.offcanvas-body{
+    background-color: rgba(13, 13, 13, 0.898);
+
+}
+
+h6{
+    color: rgba(232, 226, 226, 0.737);
+
+}
+.offcanvas-header{
+    background-color: rgba(13, 13, 13, 0.898);
+}
+.image{
+    background-image: url("https://www.backgroundcheckcentral.com/wp-content/uploads/2022/04/College-Background-Check.jpg");
+
+        height:40em; 
+        background-size:cover;
+         width:100%;
+       
+         background-position:50% 50%;
+        position: fixed;
+      
+}

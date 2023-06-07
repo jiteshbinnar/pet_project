@@ -1,0 +1,34 @@
+h4{
+    font-style: italic;
+    color: rgb(203, 4, 4);
+    text-align: center;
+    font-weight: bold;
+}
+table{
+    width: 100%;
+    margin-left: 0%;
+}
+td{
+    color: rgba(232, 226, 226, 0.737);
+}
+/* .image{
+    background-image: url("https://www.backgroundcheckcentral.com/wp-content/uploads/2022/04/College-Background-Check.jpg");
+
+        height:40em; 
+        background-size:cover;
+         width:100%;
+       
+         background-position:50% 50%;
+        position: fixed;
+      
+} */
+
+p{
+    color: red;
+    font-style: italic;
+    text-align: center;
+
+}
+.myValidation div{
+  color: red;
+}
